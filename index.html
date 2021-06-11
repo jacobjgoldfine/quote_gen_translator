@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--tailwind via CDN don't use if you download and incoperate into the files-->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!--tailwind via downloaded files, don't use if using the CDN-->
+    <link href="./assets/css/tailwind.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Are you Date'n a Felon?!</title>
+  </head>
+  <body>
+    <header>
+      <h1>Are you Date'n a Felon?!</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="./index.html">Homepage</a>
+          </li>
+          <li>
+            <a href="./about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <aside>
+      <h3>Enter your data here</h3>
+      <form id="date_info">
+        <label class="" for="name">Name</label>
+        <input name="name" id="name" type="text" autofocus="true" class="" />
+        <label class="" for="location">Location</label>
+        <!--make a dropdown selectable in JS-->
+        <input name="location" id="location" type="text" class="" />
+        <label class="" for="time">Time</label>
+        <!--make a selectable date in JS-->
+        <input name="time" id="time" type="text" class="" />
+        <label class="" for="crime">Crime</label>
+        <!--make a drop down selectable in JS-->
+        <input name="crime" id="crime" type="text" class="" />
+        <label class="" for="test">test</label>
+        <!--placeholder for other dataentry we may want-->
+        <input name="test" id="test" type="text" class="" />
+        <button type="submit" class="">Check Date!</button>
+      </form>
+      <!--ToDO: add a modal popup if no data was entered-->
+    </aside>
+    <main>
+      <div>
+        <h2>Showing results for: <span id="date_name"></span></h2>
+        <div id="criminal_container" class="">
+          <!--container for adding results in JS-->
+        </div>
+      </div>
+    </main>
+    <script>
+      src = "./assets/js/script.js";
+    </script>
+  </body>
+</html>
