@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--tailwind via CDN don't use if you download and incoperate into the files-->
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Special+Elite&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="assets/css/style.css"><!--link to the style.css-->
 
     <title>Are you Date'n a Felon?!</title>
   </head>
   <body>
-    <header class="bg-gray-800 text-white">
-      <h1 class="text-6xl text-center underline bolder m-2">Are you Date'n a Felon?!</h1>
-      <nav class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
-        <ul class="flex flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
-          <li class="text-lg font-medium text-gray-200 transform hover:text-blue-400">
-            <a class="" href="./index.html">Homepage</a>
+    <header class= "bg-gray-800 text-white">
+      <h1 class= "text-6xl text-center underline bolder pt-10">Are you Date'n a Felon?!</h1>
+      <nav class="container px-6 py-4">
+        <ul class= "flex flex-col space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
+          <li class="text-lg font-medium text-gray-200  transform hover:text-blue-400">
+            <a class= "" href="./index.html">Homepage</a>
           </li>
           <li class="text-lg font-medium text-gray-200 transform hover:text-blue-400">
             <a href="./about.html">About</a>
@@ -24,42 +32,44 @@
       </nav>
     </header>
 
-    <webpage class="flex">
-      <aside class="w-64 ml-2 mt-5">
-        <div class="grid grid-cols-2 gap-2 bg-green-400 p-4">
-          <h3 class="mt-2 row-start-1 col-span-2 text-4xl">Enter your Date's Info:</h3>
-          <form id="date_info">
-            <div class="info1 row-start-2 col-span-2">
-              <label class="text-2xl" for="name">Last Name</label>
-              <input name="last_name" id="last_name" type="text" autofocus="true" class="" />
-            </div>
-            <div class="info1 row-start-2 col-span-2">
-              <label class="text-2xl" for="name">First Name</label>
-              <input name="first_name" id="first_name" type="text" class="" />
-            </div>
-            <div class="info2 row-start-2 col-span-2">
-              <!--use map API, likely change to a button to pull up the API-->
-              <label class="text-2xl" for="location">Crime</label>
-              <input name="location" id="crime" type="text" class="" />
-            </div>
-            <div class="info2 row-start-2 col-span-2">
-              <!--use map API, likely change to a button to pull up the API-->
-              <label class="text-2xl" for="location">Location</label>
-              <input name="location" id="location" type="text" class="" />
-            </div>
 
-            <button id="submit_btn" type="submit" class="text-lg">Check Date!</button>
-          </form>
-          <!--ToDO: add a modal popup if no data was entered-->
+    <webpage class= flex>
+    <aside class= "w-64 ml-2 mt-5" >
+      <div class= "grid grid-cols-3 gap-2 p-4" >
+      <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Enter your Date's Info:</h3>
+      <form id="date_info">
+        <div class= "info1 row-start-2 col-span-3">
+        <label class="text-2xl" for="last_name">Last Name</label>
+        <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
+        </div>  
+        <div class= "info1 row-start-2 col-span-3">
+          <label class="text-2xl" for="first_name">First Name</label>
+          <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
+        </div>  
+        <div class= "info2 row-start-2 col-span-3">
+          <label class="text-2xl" for="location">Location</label>
+          <!--use map API likely a button to pull API map up-->
+          <input name="location" id="location" type="text" class="mb-2 mt-1" />
+        </div>  
+        <div class= "info4 row-start-2 col-span-3">
+        <label class="text-2xl" for="crime">Crime</label>
+        <!--make a drop down selectable in JS-->
+        <input name="crime" id="crime" type="text" class="mb-2 mt-1" />
+        </div>  
+      </div>  
+
+        <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
+      </form>
+      <!--ToDO: add a modal popup if no data was entered-->
+      </div>
+    </aside>
+    <main class = "flex-1 p-5 text-2xl font-bold bg-green-900 mt-5 mr-5 ml-2">
+      <div>
+        <h2>Showing results for: <span id="date_name"></span></h2>
+        <div id="criminal_container" class="">
+          <!--container for adding results in JS-->
         </div>
-      </aside>
-      <main class="flex-1 p-5 text-2xl font-bold bg-green-900 mt-5 mr-5 ml-2">
-        <div>
-          <h2>Showing results for: <span id="date_name"></span></h2>
-          <div id="criminal_container" class="">
-            <!--container for adding results in JS-->
-          </div>
-        </div>
+      </div>
       </main>
     </webpage>
     <div id="error_modal">
