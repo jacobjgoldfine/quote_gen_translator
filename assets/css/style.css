@@ -30,3 +30,7 @@ h3 {
 .criminal-container {
   background-color: grey;
 }
+
+input, select {
+  color: black;
+}

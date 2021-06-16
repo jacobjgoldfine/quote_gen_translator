@@ -47,19 +47,27 @@
           <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
         </div>  
         <div class= "info2 row-start-2 col-span-3">
-          <label class="text-2xl" for="location">Location</label>
+          <label class="text-2xl" for="location">State</label>
           <!--use map API likely a button to pull API map up-->
-          <input name="location" id="location" type="text" class="mb-2 mt-1" />
+          <select name="location" id="location" type="text" class="mb-2 mt-1">
+            <option selected='true'></option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option>Arkansas</option>
+            <option>Louisiana</option>
+            <option>Texas</option>
+            <option>Wisconsin</option>
+          </select>
         </div>  
-        <div class= "info4 row-start-2 col-span-3">
-        <label class="text-2xl" for="crime">Crime</label>
+        <!--<div class= "info4 row-start-2 col-span-3">-->
+        <!--<label class="text-2xl" for="crime">Crime</label>-->
         <!--make a drop down selectable in JS-->
-        <input name="crime" id="crime" type="text" class="mb-2 mt-1" />
-        </div>  
+        <!--<input name="crime" id="crime" type="text" class="mb-2 mt-1" />-->
+        <!--</div>-->
       </div>  
 
         <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
-      </form>
+
       <!--ToDO: add a modal popup if no data was entered-->
       </div>
     </aside>
