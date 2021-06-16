@@ -28,7 +28,23 @@ var errorPop = document.getElementById("error_modal");
 function mapSelect() {
   //if we need to use a function for the map API
 }
-function dataSubmit() {
+function dataSubmit(event) {
+  event.preventDefault();
+  const loc = $('select[name="location"]').val();
+  console.log('FORM SUBMIT:', loc)
+
+  const newForm = $('form');
+  countyOffices[loc].map(office => {
+    const newRadio = $('input');
+    newRadio.setAttr('type')
+    
+    const newEl = $('div');
+    const newHeader = $('h1');
+    newHeader.textContent(office.name);
+    newEl.append(newHeader)
+    // do some other stuff
+    $('theElementWhereYouWantToPutThis').append(newEl)
+  });
   //function to run when hit the submitBtn, pulls form data for APIcall
   //get the state and county source_id here, pass into next function along with the name and crime
 }
@@ -45,3 +61,31 @@ function displayResult() {
 }
 submitBtn.addEventListener("click", dataSubmit);
 
+
+const countyOffices =  {
+  Alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+  alabama: [],
+};
+function getSourceIds() {
+  // fetch the data
+
+
+  // PARSE the data
+  // (same as doing a for loop and looping over the array)
+  response.records.map(function(whateveryouwant) {
+    // countyOffices.Alabama.push(office);
+    // countyOffices.Texas.push(office);
+    // countyOffices.Wisconsin.push(office);
+    return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
+  });
+}
+
+getSourceIds();
