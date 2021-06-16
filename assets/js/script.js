@@ -44,3 +44,4 @@ function displayResult() {
   //append the results from API call to var results
 }
 submitBtn.addEventListener("click", dataSubmit);
+
