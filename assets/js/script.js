@@ -1,6 +1,16 @@
-//Jailbase API
+var dateInfo = document.getElementById("date_info");
+var firstName = document.getElementById("first_name");
+var lastName = document.getElementById("last_name");
+var crime = document.getElementById("crime");
+var local = document.getElementById("location");
+var submitBtn = document.getElementById("submit_btn");
+var resultName = document.getElementById("date_name");
+var results = document.getElementById("criminal_container");
+var errorPop = document.getElementById("error_modal");
 
-// Here is the link to the documentation 
+// Jailbase API
+
+// Here is the link to the documentation
 // https://www.jailbase.com/api/
 // There are multiple methods, but the only one I think we will need is the search one.
 
@@ -9,10 +19,28 @@
 // Last name is required.
 // We could also add first name, state, and county to the search form
 
-// FBI Most Wanted API
+// jailbase API calls needed
+// call for State and County to get source_id first API call
+// use that source_id in search for person second API call
+// then add a function to break the crime into an array, search for keywords
 
-// Documentation is sparse on this one, but here is the link:
-// https://www.fbi.gov/wanted/api
+//add drop down menu to var crime via tailwind or jquerry, list keywords in array for crimes
+function mapSelect() {
+  //if we need to use a function for the map API
+}
+function dataSubmit() {
+  //function to run when hit the submitBtn, pulls form data for APIcall
+  //get the state and county source_id here, pass into next function along with the name and crime
+}
 
-// Request from https://api.fbi.gov/wanted/v1/list 
-
+function crimeSearch() {
+  //run the second API call, get person info
+  //break the crime listed in the object down into an array
+  //compare array to our crime data entry if submited
+  //pass all matches onto next function
+  //add to local storage
+}
+function displayResult() {
+  //append the results from API call to var results
+}
+submitBtn.addEventListener("click", dataSubmit);

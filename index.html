@@ -25,12 +25,13 @@
           <li class="text-lg font-medium text-gray-200  transform hover:text-blue-400">
             <a class= "" href="./index.html">Homepage</a>
           </li>
-          <li class="text-lg font-medium text-gray-200   transform hover:text-blue-400">
+          <li class="text-lg font-medium text-gray-200 transform hover:text-blue-400">
             <a href="./about.html">About</a>
           </li>
         </ul>
       </nav>
     </header>
+
 
     <webpage class= flex>
     <aside class= "w-64 ml-2 mt-5" >
@@ -38,36 +39,26 @@
       <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Enter your Date's Info:</h3>
       <form id="date_info">
         <div class= "info1 row-start-2 col-span-3">
-        <label class="text-2xl" for="name">Name</label>
+        <label class="text-2xl" for="last_name">Last Name</label>
         <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
         </div>  
-
+        <div class= "info1 row-start-2 col-span-3">
+          <label class="text-2xl" for="first_name">First Name</label>
+          <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
+        </div>  
         <div class= "info2 row-start-2 col-span-3">
-        <label class="text-2xl" for="location">Location</label>
-        <!--make a dropdown selectable in JS-->
-        <input name="location" id="location" type="text" class="mb-2 mt-1" />
+          <label class="text-2xl" for="location">Location</label>
+          <!--use map API likely a button to pull API map up-->
+          <input name="location" id="location" type="text" class="mb-2 mt-1" />
         </div>  
-
-        <div class= "info3 row-start-2 col-span-3">
-        <label class="text-2xl" for="time">Time</label>
-        <!--make a selectable date in JS-->
-        <input name="time" id="time" type="text" class="mb-2 mt-1" />
-        </div>  
-
         <div class= "info4 row-start-2 col-span-3">
         <label class="text-2xl" for="crime">Crime</label>
         <!--make a drop down selectable in JS-->
         <input name="crime" id="crime" type="text" class="mb-2 mt-1" />
         </div>  
-
-        <div class= "info4 row-start-2 col-span-3">
-        <label class="text-2xl" for="test">Test</label>
-        <!--placeholder for other dataentry we may want-->
-        <input name="test" id="test" type="text" class="mb-2 mt-1" />
-        </div>
       </div>  
 
-        <button type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
+        <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
       </form>
       <!--ToDO: add a modal popup if no data was entered-->
       </div>
@@ -79,11 +70,18 @@
           <!--container for adding results in JS-->
         </div>
       </div>
-    </main>
+      </main>
     </webpage>
-
-    <script>
-      src = "./assets/js/script.js";
-    </script>
+    <div id="error_modal">
+      <div>
+        <p>Please enter valid info.</p>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
