@@ -2,7 +2,7 @@ body {
   font-family: "Special Elite", cursive;
 }
 
-aside {
+section {
   background: rgb(121, 22, 9);
   background: linear-gradient(
     171deg,
@@ -26,7 +26,10 @@ h3 {
   flex: 1 1 0;
   width: 0;
 }
-
 .criminal-container {
-  background-color: grey;
+  border-radius: 10px;
+}
+
+.hide {
+  display: none;
 }

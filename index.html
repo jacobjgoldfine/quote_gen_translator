@@ -32,9 +32,8 @@
       </nav>
     </header>
 
-
-    <webpage class= flex>
-    <aside class= "w-64 ml-2 mt-5" >
+    <webpage class= "flex justify-center">
+    <section class= " w-70 ml-2 mt-5 mb-10" >
       <div class= "grid grid-cols-3 gap-2 p-4" >
       <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Enter your Date's Info:</h3>
       <form id="date_info">
@@ -49,32 +48,39 @@
         <div class= "info2 row-start-2 col-span-3">
           <label class="text-2xl" for="location">Location</label>
           <!--use map API likely a button to pull API map up-->
-          <input name="location" id="location" type="text" class="mb-2 mt-1" />
+          <select name="location" id="location" type="text" class="mb-2 mt-1 text-black">
+            <option selected ="true"> Select a State</option>
+            <option>Texas</option>
+            <option>Florida</option>
+            <optio>another state</option>
+          </select> 
         </div>  
-        <div class= "info4 row-start-2 col-span-3">
+        <!-- <div class= "info4 row-start-2 col-span-3">
         <label class="text-2xl" for="crime">Crime</label>
-        <!--make a drop down selectable in JS-->
+        -- this is something we can add if we have the time for this selection: make a drop down selectable in JS
         <input name="crime" id="crime" type="text" class="mb-2 mt-1" />
         </div>  
-      </div>  
+      </div>   -->
 
         <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
       </form>
       <!--ToDO: add a modal popup if no data was entered-->
       </div>
-    </aside>
-    <main class = "flex-1 p-5 text-2xl font-bold bg-green-900 mt-5 mr-5 ml-2">
-      <div>
-        <h2>Showing results for: <span id="date_name" class= ""></span></h2>
-        <!-- <div id="criminal-container" class="criminal-container grid-flow-col">
-          <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-            <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-              <li id= "crime-time" class= "crime-time"> crime-time</li>
-              <li id= "crime-location" class= "crime-location "> crime-location</li>
-              <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-              <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-             </ul>
-        </div> -->
+    </section>
+    <!--Added class "hide" to this so in the JS we will show this when it goes to the next "page/screen probably on event listener"-->
+    <main class = " hide grid grid-flow-col grid-cols-1 w-screen">
+      <div class="bg-blue-400 text-black-400 min-h-screen flex m-5 mb-5 ml-2 w=w-screen">
+        <div class=" grid grid-cols-2 gap-2 w-screen m-5">
+        <h1 class= "col-span-2 text-white"> Showing results: <span id="date_name" class= ""></span> </h1>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
       </div>
       </main>
     </webpage>
