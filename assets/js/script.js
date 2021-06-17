@@ -3,6 +3,7 @@ var firstName = document.getElementById("first_name").value;
 var lastName = document.getElementById("last_name").value;
 var state = document.getElementById("state").value;
 var submitBtn = document.getElementById("submit_btn");
+var nextBtn= document.getElementById("next_btn")
 var resultName = document.getElementById("date_name");
 var results = document.getElementById("criminal_container");
 var errorPop = document.getElementById("error_modal");
@@ -68,9 +69,15 @@ function pullResults() {
 
 function displayResult() {
   //append the results from API call to var results
-};
+}
+submitBtn.addEventListener("click", gotoform2)
 
-submitBtn.addEventListener("click", dataSubmit);
+function gotoform2(){
+  document.getElementById("form-1").classList.add("hide");
+  document.getElementById("form-2").classList.remove("hide") //Todo: figure out why this is showing for .2 seconds and then going away
+  dataSubmit;
+}
+
 
 const countyOffices = {
   Alabama: [],
@@ -121,13 +128,31 @@ const countyOffices = {
 window.onload = function getSourceIds() {
   const queryURL = "https://www.jailbase.com/api/1/sources/";
   $.ajax({
-    url: queryURL,
-    method: "GET",
-    success: function (data) {
-      console.log(data);
-    },
-  });
-};
+
+      url:queryURL,
+      method:"GET", 
+      success:function(data){
+        console.log(data);
+        var stateArray= data.records
+        for (i=0; i < stateArray.length; i++){
+          if(stateArray[i].state_full){
+            console.log(stateArray[i].state_full)
+          
+          
+            stateName.text()
+          }
+        }
+        var countyArray= data.records
+        for (i=0; i < countyArray.length; i++){
+          if(countyArray[i].name){
+            console.log(countyArray[i].name)
+          }
+        }  
+        
+      }
+    })
+  };
+
 
 // PARSE the data
 // (same as doing a for loop and looping over the array)
