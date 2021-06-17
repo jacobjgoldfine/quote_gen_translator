@@ -33,7 +33,7 @@
     </header>
 
     <webpage class= "flex justify-center">
-    <section class= " w-70 ml-2 mt-5 mb-10" >
+    <section id= "form-1" class= "w-70 ml-2 mt-5 mb-10" >
       <div class= "grid grid-cols-3 gap-2 p-4" >
       <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Enter your Date's Info:</h3>
       <form id="date_info">
@@ -53,7 +53,7 @@
             <option selected ="true"> Select a State</option>
             <option>Texas</option>
             <option>Florida</option>
-            <optio>another state</option>
+            <optio>Washington</option>
           </select> 
         </div>  
         <!-- <div class= "info4 row-start-2 col-span-3">
@@ -63,16 +63,99 @@
         </div>  
       </div>   -->
 
-        <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Check Date!</button>
+        <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
 
       <!--ToDO: add a modal popup if no data was entered-->
       </div>
     </section>
+    <section id="form-2" class= "hide w-70 ml-2 mt-5 mb-10" >
+      <div class= "grid grid-cols-3 gap-2 p-4" >
+        <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Select a County:</h3>
+        <form id="date_info">
+          <div class= "info2 row-start-2 col-span-3">
+            <label class="text-2xl" for="location">State</label>
+            <!--use map API likely a button to pull API map up-->
+  
+            <select name="location" id="location" type="text" class="mb-2 mt-1 text-black">
+              <option selected ="true"> Select a County</option>
+              <option>Dallas</option>
+              <option>Denton</option>
+              <option>Tarrent</option>
+            </select> 
+          </div>  
+          <button id="submit_btn2" type="submit" class="text-4xl ml-4 mb-3 underline">Check Your Date! </button>
+
+    </section>
     <!--Added class "hide" to this so in the JS we will show this when it goes to the next "page/screen probably on event listener"-->
-    <main class = " hide grid grid-flow-col grid-cols-1 w-screen">
+    <main id= search-results-page class = "hide grid grid-flow-col grid-cols-1 w-screen">
       <div class="bg-blue-400 text-black-400 min-h-screen flex m-5 mb-5 ml-2 w=w-screen">
         <div class=" grid grid-cols-2 gap-2 w-screen m-5">
-        <h1 class= "col-span-2 text-white"> Showing results: <span id="date_name" class= ""></span> </h1>
+        <button id="clear_btn" type="submit" class="text-left text-sm ml-4 mb-3 ">Clear Searches </button>
+        <button id="seach-again_btn" type="submit" class="text-right text-sm ml-4 mb-3 ">Seach Again </button>
+        <h1 class= "col-span-2 text-xl text-white text-center"> Showing results: <span id="date_name" class= ""></span> </h1>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
+          <div class="bg-white p-10 rounded">
+            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
+              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
+                <li id= "crime-time" class= "crime-time"> crime-time</li>
+                <li id= "crime-location" class= "crime-location "> crime-location</li>
+                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
+                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              </ul>
+          </div>
           <div class="bg-white p-10 rounded">
             <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
               <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
