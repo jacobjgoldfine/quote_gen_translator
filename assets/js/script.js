@@ -116,7 +116,28 @@ window.onload = function getSourceIds() {
       url:queryURL,
       method:"GET", 
       success:function(data){
-        console.log(data)
+        console.log(data);
+        var stateArray= data.records
+        for (i=0; i < stateArray.length; i++){
+          if(stateArray[i].state_full){
+            console.log(stateArray[i].state_full)
+          9
+          
+            stateName.text()
+          }
+        }
+        
+        
+        
+        
+        
+        var countyArray= data.records
+        for (i=0; i < countyArray.length; i++){
+          if(countyArray[i].name){
+            console.log(countyArray[i].name)
+          }
+        }  
+        
       }
     })
   };
