@@ -1,12 +1,13 @@
 var dateInfo = document.getElementById("date_info");
-var firstName = document.getElementById("first_name");
-var lastName = document.getElementById("last_name");
-var crime = document.getElementById("crime");
-var local = document.getElementById("location");
+var firstName = document.getElementById("first_name").value;
+var lastName = document.getElementById("last_name").value;
+var state = document.getElementById("state").value;
 var submitBtn = document.getElementById("submit_btn");
 var resultName = document.getElementById("date_name");
 var results = document.getElementById("criminal_container");
 var errorPop = document.getElementById("error_modal");
+
+console.log(lastName);
 
 // Jailbase API
 
@@ -30,39 +31,48 @@ function mapSelect() {
 }
 function dataSubmit(event) {
   event.preventDefault();
-  const loc = $('select[name="location"]').val();
-  console.log('FORM SUBMIT:', loc)
 
-  const newForm = $('form');
-  countyOffices[loc].map(office => {
-    const newRadio = $('input');
-    newRadio.setAttr('type')
-    
-    const newEl = $('div');
-    const newHeader = $('h1');
+  var newForm = $("form");
+  countyOffices[loc].map((office) => {
+    var newRadio = $("input");
+    newRadio.setAttr("type");
+
+    var newEl = $("div");
+    var newHeader = $("h1");
     newHeader.textContent(office.name);
-    newEl.append(newHeader)
+    newEl.append(newHeader);
     // do some other stuff
-    $('theElementWhereYouWantToPutThis').append(newEl)
+    $("theElementWhereYouWantToPutThis").append(newEl);
   });
   //function to run when hit the submitBtn, pulls form data for APIcall
-  //get the state and county source_id here, pass into next function along with the name and crime
 }
 
-function crimeSearch() {
-  //run the second API call, get person info
-  //break the crime listed in the object down into an array
-  //compare array to our crime data entry if submited
-  //pass all matches onto next function
-  //add to local storage
+function countySubmit() {
+  //add the county form submit based on state
+  //pull sourceID, pass on
 }
+
+function pullResults() {
+  //do a second API call with source ID put into local storage
+  const queryURL = `https://www.jailbase.com/api/1/search/?source_id=${source_id}&first_name=${firstName}&last_name=${lastName}`;
+  //check documentation for API
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    success: function (data) {
+      console.log(data);
+    },
+    displayResult(data);
+});
+};
+
 function displayResult() {
   //append the results from API call to var results
-}
+};
+
 submitBtn.addEventListener("click", dataSubmit);
 
-
-const countyOffices =  {
+const countyOffices = {
   Alabama: [],
   Alaska: [],
   Arizona: [],
@@ -109,25 +119,21 @@ const countyOffices =  {
 };
 
 window.onload = function getSourceIds() {
-  // fetch the data
   const queryURL = "https://www.jailbase.com/api/1/sources/";
-  //check documentation for API
   $.ajax({
-      url:queryURL,
-      method:"GET", 
-      success:function(data){
-        console.log(data)
-      }
-    })
-  };
+    url: queryURL,
+    method: "GET",
+    success: function (data) {
+      console.log(data);
+    },
+  });
+};
 
-
-
-  // PARSE the data
-  // (same as doing a for loop and looping over the array)
+// PARSE the data
+// (same as doing a for loop and looping over the array)
 //response.records.map(function(whateveryouwant) {
-    // countyOffices.Alabama.push(office);
-    // countyOffices.Texas.push(office);
-    // countyOffices.Wisconsin.push(office);
-   // return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
- //})
+// countyOffices.Alabama.push(office);
+// countyOffices.Texas.push(office);
+// countyOffices.Wisconsin.push(office);
+// return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
+//})
