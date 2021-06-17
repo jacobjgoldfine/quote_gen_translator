@@ -4,6 +4,7 @@ var lastName = document.getElementById("last_name");
 var crime = document.getElementById("crime");
 var local = document.getElementById("location");
 var submitBtn = document.getElementById("submit_btn");
+var nextBtn= document.getElementById("next_btn")
 var resultName = document.getElementById("date_name");
 var results = document.getElementById("criminal_container");
 var errorPop = document.getElementById("error_modal");
@@ -59,8 +60,13 @@ function crimeSearch() {
 function displayResult() {
   //append the results from API call to var results
 }
-submitBtn.addEventListener("click", dataSubmit);
+submitBtn.addEventListener("click", gotoform2)
 
+function gotoform2(){
+  document.getElementById("form-1").classList.add("hide");
+  document.getElementById("form-2").classList.remove("hide") //Todo: figure out why this is showing for .2 seconds and then going away
+  dataSubmit;
+}
 
 const countyOffices =  {
   Alabama: [],
@@ -126,11 +132,6 @@ window.onload = function getSourceIds() {
             stateName.text()
           }
         }
-        
-        
-        
-        
-        
         var countyArray= data.records
         for (i=0; i < countyArray.length; i++){
           if(countyArray[i].name){
