@@ -33,3 +33,7 @@ h3 {
 .hide {
   display: none;
 }
+
+input, select {
+  color: black;
+}
