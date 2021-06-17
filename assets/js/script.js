@@ -64,28 +64,70 @@ submitBtn.addEventListener("click", dataSubmit);
 
 const countyOffices =  {
   Alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
-  alabama: [],
+  Alaska: [],
+  Arizona: [],
+  Arkansas: [],
+  California: [],
+  Colorado: [],
+  Connecticut: [],
+  Florida: [],
+  Goergia: [],
+  Idaho: [],
+  Illinois: [],
+  Indiana: [],
+  Iowa: [],
+  Kansas: [],
+  Kentucky: [],
+  Louisiana: [],
+  Maryland: [],
+  Michigan: [],
+  Minnesota: [],
+  Mississippi: [],
+  Missouri: [],
+  Montana: [],
+  Nebraska: [],
+  Nevada: [],
+  New_Jersey: [],
+  New_Mexico: [],
+  New_York: [],
+  North_Carolina: [],
+  North_Dakota: [],
+  Ohio: [],
+  Oklahoma: [],
+  Oregon: [],
+  Pennsylvania: [],
+  South_Carolina: [],
+  South_Dakota: [],
+  Tennesse: [],
+  Texas: [],
+  Utah: [],
+  Virginia: [],
+  Washington: [],
+  West_Virginia: [],
+  Wisconsin: [],
+  Wyoming: [],
 };
-function getSourceIds() {
+
+window.onload = function getSourceIds() {
   // fetch the data
+  const queryURL = "https://www.jailbase.com/api/1/sources/";
+  //check documentation for API
+  $.ajax({
+      url:queryURL,
+      method:"GET", 
+      success:function(data){
+        console.log(data)
+      }
+    })
+  };
+
 
 
   // PARSE the data
   // (same as doing a for loop and looping over the array)
-  response.records.map(function(whateveryouwant) {
+//response.records.map(function(whateveryouwant) {
     // countyOffices.Alabama.push(office);
     // countyOffices.Texas.push(office);
     // countyOffices.Wisconsin.push(office);
-    return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
-  });
-}
-
-getSourceIds();
+   // return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
+ //})
