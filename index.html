@@ -45,92 +45,26 @@
             <option>Spanish</option>
            </select>
           </div>
+          <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
       <!--ToDO: add a modal popup if no data was entered-->
     </section>
     <br>
-    <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
 
     </section>
     <!--Added class "hide" to this so in the JS we will show this when it goes to the next "page/screen probably on event listener"-->
-    <main id= search-results-page class = " grid grid-flow-col grid-cols-1 w-screen">
+    <main id= form-2 class = " hide grid grid-flow-col grid-cols-1 w-screen">
       <div class="bg-blue-400 text-black-400 min-h-screen flex m-5 mb-5 ml-2 w=w-screen">
         <div class=" grid grid-cols-2 gap-2 w-screen m-5">
         <button id="clear_btn" type="submit" class="text-left text-sm ml-4 mb-3 ">Clear Searches </button>
         <button id="seach-again_btn" type="submit" class="text-right text-sm ml-4 mb-3 ">Seach Again </button>
-        <h1 class= "col-span-2 text-xl text-white text-center"> Showing results: <span id="date_name" class= ""></span> </h1>
+        <h1 class= "col-span-2 text-xl text-white text-center"> Past Quotes: <span id="" class= ""></span> </h1>
           <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              <ul id= "past-Quote" class= "past-Quote grid-flow-col	">
+                <li> Origional Quote: <span id= "og-Quote" class= "og-Quote"> </span></li>
+                <li> Translation: <span id= "tr-Quote" class= "tr-Quote" ></span></li>
               </ul>
           </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-      </div>
+
       </main>
     </webpage>
     <div id="error_modal">
