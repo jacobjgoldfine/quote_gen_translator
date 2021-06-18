@@ -10,24 +10,6 @@ var errorPop = document.getElementById("error_modal");
 
 console.log(lastName);
 
-// Jailbase API
-
-// Here is the link to the documentation
-// https://www.jailbase.com/api/
-// There are multiple methods, but the only one I think we will need is the search one.
-
-// Request from https://www.jailbase.com/api/1/search/?last_name= "Name search"
-
-// Last name is required.
-// We could also add first name, state, and county to the search form
-
-// jailbase API calls needed
-// call for State and County to get source_id first API call
-// use that source_id in search for person second API call
-// then add a function to break the crime into an array, search for keywords
-
-//add drop down menu to var crime via tailwind or jquerry, list keywords in array for crimes
-
 function gotoform2(event) {
   event.preventDefault();
   document.getElementById("form-1").classList.add("hide");
@@ -42,15 +24,8 @@ function gotoSearchResults (event){
   document.getElementById("search-results-page").classList.remove("hide")
 }
 
-
 function dataSubmit(event) {
   event.preventDefault();
-
-  var newForm = $("form");
-  countyOffices[loc].map((office) => {
-    var newRadio = $("input");
-    newRadio.setAttr("type");
-  });
 }
 
 function pullResults() {
@@ -90,6 +65,31 @@ function getQuote() {
   })
 }
 
+// function getSourceIds() {
+//   const queryURL = "https://www.jailbase.com/api/1/sources/";
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//     success: function (data) {
+//       console.log(data);
+//       var stateArray = data.records;
+//       for (i = 0; i < stateArray.length; i++) {
+//         if (stateArray[i].state_full) {
+//           console.log(stateArray[i].state_full);
+
+//           stateName.text();
+//         }
+//       }
+//       var countyArray = data.records;
+//       for (i = 0; i < countyArray.length; i++) {
+//         if (countyArray[i].name) {
+//           console.log(countyArray[i].name);
+//         }
+//       }
+//     },
+//   });
+// }
+
 quoteEl.click(getQuote);
 
 var ogQuote = localStorage.getItem();
@@ -128,4 +128,24 @@ var ogQuote = localStorage.getItem();
 // return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
 //})
 
+// getSourceIds();
 
+fetch("https://google-translate1.p.rapidapi.com/language/translate/v2", {
+  method: "POST",
+  headers: {
+    "content-type": "application/x-www-form-urlencoded",
+    "accept-encoding": "application/gzip",
+    "x-rapidapi-host": "google-translate1.p.rapidapi.com",
+  },
+  body: {
+    q: "Hello, world!",
+    target: "es",
+    source: "en",
+  },
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
