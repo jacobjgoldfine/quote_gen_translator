@@ -3,7 +3,7 @@ var firstName = document.getElementById("first_name");
 var lastName = document.getElementById("last_name");
 var state = document.getElementById("state");
 var submitBtn = document.getElementById("submit_btn");
-var nextBtn = document.getElementById("next_btn");
+var submitBtn2 = document.getElementById("submit_btn2");
 var resultName = document.getElementById("date_name");
 var results = document.getElementById("criminal_container");
 var errorPop = document.getElementById("error_modal");
@@ -31,9 +31,17 @@ console.log(lastName);
 function gotoform2(event) {
   event.preventDefault();
   document.getElementById("form-1").classList.add("hide");
-  document.getElementById("form-2").classList.remove("hide"); //Todo: figure out why this is showing for .2 seconds and then going away
+  document.getElementById("form-2").classList.remove("hide"); 
   // dataSubmit();
 }
+
+function gotoSearchResults (event){
+  event.preventDefault();
+  document.getElementById("form-1").classList.add("hide");
+  document.getElementById("form-2").classList.add("hide"); 
+  document.getElementById("search-results-page").classList.remove("hide")
+}
+
 
 function dataSubmit(event) {
   event.preventDefault();
@@ -108,6 +116,8 @@ const countyOffices = {
 };
 
 submitBtn.addEventListener("click", gotoform2);
+submitBtn2.addEventListener("click", gotoSearchResults);
+
 
 function getSourceIds() {
   const queryURL = "https://www.jailbase.com/api/1/sources/";
