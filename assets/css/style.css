@@ -3,11 +3,11 @@ body {
 }
 
 section {
-  background: rgb(121, 22, 9);
+  background: rgb(9, 11, 121);
   background: linear-gradient(
     171deg,
-    rgba(121, 22, 9, 1) 52%,
-    rgba(255, 26, 0, 1) 100%
+    rgb(9, 99, 121) 52%,
+    rgb(0, 238, 255) 100%
   );
   border-radius: 10px;
   color: aliceblue;
