@@ -46,14 +46,14 @@ const countyOffices =  {
   
   window.onload = function getSourceIds() {
     // fetch the data
-    const queryURL = "https://www.jailbase.com/api/1/sources/";
+    const queryURL = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
     //check documentation for API
     $.ajax({
         url:queryURL,
         method:"GET", 
         success:function(data){
           console.log(data);
-          var stateArray= data.records
+          var stateArray= data.translation
           for (i=0; i < stateArray.length; i++){
             if(stateArray[i].state_full){
               console.log(stateArray[i].state_full)
