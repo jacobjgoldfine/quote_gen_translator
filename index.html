@@ -11,7 +11,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   
     <link rel="stylesheet" href="assets/css/style.css"><!--link to the style.css-->
 
@@ -32,45 +32,49 @@
       </nav>
     </header>
 
-    <webpage class= "flex justify-center">
-    <section id= "form-1" class= "w-70 ml-2 mt-5 mb-10" >
-      <div class= "grid grid-cols-3 gap-2 p-4" >
-      <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" > Select a Language</h3>
+    <webpage class= " flex justify-center">
+    <section id= "form" class= " languageSelect ml-2 mt-5 mb-30 items-center" >
+      <div class= "p-4 items-center" >
+      <h3 class= "mt-2 row-start-1 mb-5 col-span-3 text-5xl" > Select a Language</h3>
       <form id="date_info">
-          <label class="text-2xl" for="location"></label>
-          <select name="state" id="state" type="text" class="mb-2 mt-1 justify-center">
-            <option selected="true">Select a Language</option>
+          <label class="" for="location"></label>
+          <select name="state" id="state" type="text" class="mb-2 mt-1 justify-center text-3xl">
+            <option selected="true">Select. . . </option>
             <option>German</option>
             <option>French</option>
             <option>Spanish</option>
            </select>
         
           </div>
-          <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
+          <button id="next_btn" type="submit" class="text-2xl ml-4 mb-3 underline boarder-solid-black">Next </button>
 
       <!--ToDO: add a modal popup if no data was entered-->
     </section>
     <br>
-
-    </section>
     <!--Added class "hide" to this so in the JS we will show this when it goes to the next "page/screen probably on event listener"-->
+    <section2 id= "results-page"  class= " hide mt-5 results-page justify-center">
+      <card class = "flex justify-center">
+        <div class="ml-2 mt-5 items-center">
+            <div class="p-10 rounded">
+              <p class= "description text-3xl"> Translation: <br> <span id= "tr-Quote" class= "Quote text-4xl"> Something inspirational </span></p>
+                <p class= "author text-4xl text-right"> ~ <span id="author"></span> First Last </p>
+              </div>
+        </div>
+      </card>
 
-    <main id= form-2 class = " hide grid grid-flow-col grid-cols-1 w-screen">
-      <div class="bg-blue-400 text-black-400 min-h-screen flex m-5 mb-5 ml-2 w=w-screen">
-        <div class=" grid grid-cols-2 gap-2 w-screen m-5">
-        <button id="clear_btn" type="submit" class="text-left text-sm ml-4 mb-3 ">Clear Searches </button>
-        <button id="seach-again_btn" type="submit" class="text-right text-sm ml-4 mb-3 ">Seach Again </button>
-        <h1 class= "col-span-2 text-xl text-white text-center"> Past Quotes: <span id="" class= ""></span> </h1>
-
-          <div class="bg-white p-10 rounded">
-              <ul id= "past-Quote" class= "past-Quote grid-flow-col	">
-                <li> Origional Quote: <span id= "og-Quote" class= "og-Quote"> </span></li>
-                <li> Translation: <span id= "tr-Quote" class= "tr-Quote" ></span></li>
-              </ul>
+      <main2 id= "" class = "flex justify-center">
+        <div class="ml-2 items-center">
+          <div class="p-10 rounded">
+        <p class= "description  text-3xl"> Quote: <br><span id= "og-Quote" class= "Quote" > Something inspirational </span></p>
+        <p class= "author text-4xl text-right"> ~ <span id="author"></span> First Last </p>
           </div>
+          <button id="" type="submit" class=" text-center mt-5 p-2 bg-purple-700 rounded-lg ">Seach Again </button>
+        </div>
+      </main2>
 
-      </main>
+    </section2>
     </webpage>
+
     <div id="error_modal">
       <div>
         <p>Please enter valid info.</p>
