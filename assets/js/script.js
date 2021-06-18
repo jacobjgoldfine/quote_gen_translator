@@ -35,7 +35,7 @@ function pullResults() {
     url: queryURL,
     method: "GET",
     success: displayResult(data),
-    // success: displayResult,
+    success: displayResult,
   });
 }
 
@@ -44,12 +44,57 @@ function displayResult(data) {
   //append the results from API call to var results
 }
 
-
 submitBtn.addEventListener("click", gotoform2);
-submitBtn2.addEventListener("click", gotoSearchResults);
+// submitBtn2.addEventListener("click", gotoSearchResults);
 
+
+//ADDING THE QUOTE TO THE PAGE 
+var quoteEl = $('#submit_btn');
+
+function getQuote() {
+  const queryURL = 'https://free-quotes-api.herokuapp.com/';
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+    success: function(data){
+      console.log(data)
+      console.log(data.quote + data.author)
+      var quote = $("#og-Quote")//add quote area ID
+      quote.append(data.quote + " - " + data.author)
+    }
+  })
+}
 
 // function getSourceIds() {
+//   const queryURL = "https://www.jailbase.com/api/1/sources/";
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//     success: function (data) {
+//       console.log(data);
+//       var stateArray = data.records;
+//       for (i = 0; i < stateArray.length; i++) {
+//         if (stateArray[i].state_full) {
+//           console.log(stateArray[i].state_full);
+
+//           stateName.text();
+//         }
+//       }
+//       var countyArray = data.records;
+//       for (i = 0; i < countyArray.length; i++) {
+//         if (countyArray[i].name) {
+//           console.log(countyArray[i].name);
+//         }
+//       }
+//     },
+//   });
+// }
+
+quoteEl.click(getQuote);
+
+var ogQuote = localStorage.getItem();
+
+// function getquote() {
 //   const queryURL = "https://www.jailbase.com/api/1/sources/";
 //   $.ajax({
 //     url: queryURL,
