@@ -8,7 +8,6 @@ var resultName = document.getElementById("date_name");
 var results = document.getElementById("criminal_container");
 var errorPop = document.getElementById("error_modal");
 
-console.log(lastName);
 
 function gotoTranslated(event) {
   event.preventDefault();
@@ -16,22 +15,6 @@ function gotoTranslated(event) {
   document.getElementById("form").classList.add("hide");
   document.getElementById("results-page").classList.remove("hide"); 
   // dataSubmit();
-}
-
-function pullResults() {
-  const queryURL = `https://www.jailbase.com/api/1/search/?source_id=${source_id}&first_name=${firstName}&last_name=${lastName}`;
-  //check documentation for API
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-    success: displayResult(data),
-    success: displayResult,
-  });
-}
-
-function displayResult(data) {
-  console.log(data);
-  //append the results from API call to var results
 }
 
 nextBtn.addEventListener("click", gotoTranslated);
@@ -50,34 +33,65 @@ function getQuote() {
       console.log(data.quote + data.author)
       var quote = $("#og-Quote")//add quote area ID
       quote.append(data.quote + " - " + data.author)
+      translateQuote(data.quote)
     }
   })
 }
 
-function getSourceIds() {
-  const queryURL = "https://www.jailbase.com/api/1/sources/";
-  $.ajax({
-    url: queryURL,
-    method: "GET",
-    success: function (data) {
-      console.log(data);
-      var stateArray = data.records;
-      for (i = 0; i < stateArray.length; i++) {
-        if (stateArray[i].state_full) {
-          console.log(stateArray[i].state_full);
-
-          stateName.text();
-        }
-      }
-      var countyArray = data.records;
-      for (i = 0; i < countyArray.length; i++) {
-        if (countyArray[i].name) {
-          console.log(countyArray[i].name);
-        }
-      }
+function translateQuote(quoteContent) {
+  //ToDo: need language code variable pulled in from another API call 
+  var langCode = 
+  fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${langCode}`, {
+    method: "POST",
+    headers: {
+      "Ocp-Apim-Subscription-Key": "5377b25d2ec94e7aa99cd9209862184f",
+      "Ocp-Apim-Subscription-Region": "eastus",
+      "Content-Type": "application/json; charset=UTF-8",
     },
-  });
+    body: JSON.stringify([
+      {"Text": quoteContent}
+  ]),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.error(err);
+    });  
 }
+
+// function displayResult(data) {
+//   console.log(data);
+//   append the results from API call to var results
+// }
+
+// function getSourceIds() {
+//   const queryURL = "https://www.jailbase.com/api/1/sources/";
+//   $.ajax({
+//     url: queryURL,
+//     method: "GET",
+//     success: function (data) {
+//       console.log(data);
+//       var stateArray = data.records;
+//       for (i = 0; i < stateArray.length; i++) {
+//         if (stateArray[i].state_full) {
+//           console.log(stateArray[i].state_full);
+
+//           stateName.text();
+//         }
+//       }
+//       var countyArray = data.records;
+//       for (i = 0; i < countyArray.length; i++) {
+//         if (countyArray[i].name) {
+//           console.log(countyArray[i].name);
+//         }
+//       }
+//     },
+//   });
+// }
 
 quoteEl.click(getQuote);
 
@@ -117,4 +131,4 @@ var ogQuote = localStorage.getItem();
 // return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
 //})
 
-getSourceIds();
+// getSourceIds();
