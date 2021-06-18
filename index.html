@@ -15,11 +15,11 @@
   
     <link rel="stylesheet" href="assets/css/style.css"><!--link to the style.css-->
 
-    <title>Are you Date'n a Felon?!</title>
+    <title>Random Quote Generator and Translator</title>
   </head>
   <body>
     <header class= "bg-gray-800 text-white">
-      <h1 class= "text-6xl text-center underline bolder pt-10">Are you Date'n a Felon?!</h1>
+      <h1 class= "text-6xl text-center underline bolder pt-10">Random Quote Generator and Translator</h1>
       <nav class="container px-6 py-4">
         <ul class= "flex flex-col space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0">
           <li class="text-lg font-medium text-gray-200  transform hover:text-blue-400">
@@ -35,167 +35,40 @@
     <webpage class= "flex justify-center">
     <section id= "form-1" class= "w-70 ml-2 mt-5 mb-10" >
       <div class= "grid grid-cols-3 gap-2 p-4" >
-      <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Enter your Date's Info:</h3>
+      <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" > Select a Language</h3>
       <form id="date_info">
-        <div class= "info1 row-start-2 col-span-3">
-        <label class="text-2xl" for="last_name">Last Name</label>
-        <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
-        </div>  
-        <div class= "info1 row-start-2 col-span-3">
-          <label class="text-2xl" for="first_name">First Name</label>
-          <input name="name" id="name" type="text" autofocus="true" class="mb-2 mt-1" />
-        </div>  
-        <div class= "info2 row-start-2 col-span-3">
-          <label class="text-2xl" for="location">State</label>
-          <select name="state" id="state" type="text" class="mb-2 mt-1">
-            <option selected="true">Select a State</option>
-            <option>Alabama</option>
-            <option>Alaska</option>
-            <option>Arizona</option>
-            <option>Arkansas</option>
-            <option>California</option>
-            <option>Colorado</option>
-            <option>Connecticut</option>
-            <option>Florida</option>
-            <option>Georgia</option>
-            <option>Idaho</option>
-            <option>Illinois</option>
-            <option>Indiana</option>
-            <option>Iowa</option>
-            <option>Kansas</option>
-            <option>Kentucky</option>
-            <option>Louisiana</option>
-            <option>Maryland</option>
-            <option>Michigan</option>
-            <option>Minnesota</option>
-            <option>Mississippi</option>
-            <option>Missouri</option>
-            <option>Montana</option>
-            <option>Nebraska</option>
-            <option>Nevada</option>
-            <option>New_Jersey</option>
-            <option>New_Mexico</option>
-            <option>New_York</option>
-            <option>North_Carolina</option>
-            <option>North_Dakota</option>
-            <option>Ohio</option>
-            <option>Oklahoma</option>
-            <option>Oregon</option>
-            <option>Pennsylvania</option>
-            <option>South_Carolina</option>
-            <option>South_Dakota</option>
-            <option>Tennesse</option>
-            <option>Texas</option>
-            <option>Utah</option>
-            <option>Virginia</option>
-            <option>Washington</option>
-            <option>West_Virginia</option>
-            <option>Wisconsin</option>
-            <option>Wyoming</option>
+          <label class="text-2xl" for="location"></label>
+          <select name="state" id="state" type="text" class="mb-2 mt-1 justify-center">
+            <option selected="true">Select a Language</option>
+            <option>German</option>
+            <option>French</option>
+            <option>Spanish</option>
            </select>
-         </div>
-        <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
+        
+          </div>
+          <button id="submit_btn" type="submit" class="text-4xl ml-4 mb-3 underline">Next </button>
 
       <!--ToDO: add a modal popup if no data was entered-->
-      
     </section>
-    <section id="form-2" class= "hide w-70 ml-2 mt-5 mb-10" >
-      <div class= "grid grid-cols-3 gap-2 p-4" >
-        <h3 class= "mt-2 row-start-1 col-span-3 text-4xl" >Select a County:</h3>
-        <form id="date_info">
-          <div class= "info2 row-start-2 col-span-3">
-            <label class="text-2xl" for="location">State</label>
-            <!--use map API likely a button to pull API map up-->
-  
-            <select name="location" id="location" type="text" class="mb-2 mt-1 text-black">
-              <option selected ="true"> Select a County</option>
-              <option>Dallas</option>
-              <option>Denton</option>
-              <option>Tarrent</option>
-            </select> 
-          </div>  
-          <button id="submit_btn2" type="submit" class="text-4xl ml-4 mb-3 underline">Check Your Date! </button>
+    <br>
 
     </section>
     <!--Added class "hide" to this so in the JS we will show this when it goes to the next "page/screen probably on event listener"-->
-    <main id= "search-results-page" class = "hide grid grid-flow-col grid-cols-1 w-screen">
+
+    <main id= form-2 class = " hide grid grid-flow-col grid-cols-1 w-screen">
       <div class="bg-blue-400 text-black-400 min-h-screen flex m-5 mb-5 ml-2 w=w-screen">
         <div class=" grid grid-cols-2 gap-2 w-screen m-5">
-        <button id="seach-again_btn" type="submit" class="text-left text-sm ml-4 mb-3 ">Seach Again </button>
-        <h1 class= "col-span-2 text-xl text-white text-center"> Showing results: <span id="date_name" class= ""></span> </h1>
+        <button id="clear_btn" type="submit" class="text-left text-sm ml-4 mb-3 ">Clear Searches </button>
+        <button id="seach-again_btn" type="submit" class="text-right text-sm ml-4 mb-3 ">Seach Again </button>
+        <h1 class= "col-span-2 text-xl text-white text-center"> Past Quotes: <span id="" class= ""></span> </h1>
+
           <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
+              <ul id= "past-Quote" class= "past-Quote grid-flow-col	">
+                <li> Origional Quote: <span id= "og-Quote" class= "og-Quote"> </span></li>
+                <li> Translation: <span id= "tr-Quote" class= "tr-Quote" ></span></li>
               </ul>
           </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-          <div class="bg-white p-10 rounded">
-            <h3 id= criminal-name class= "criminal-name ">Criminal Name</h3>
-              <ul id= "criminal-data" class= "criminal-data grid-flow-col	">
-                <li id= "crime-time" class= "crime-time"> crime-time</li>
-                <li id= "crime-location" class= "crime-location "> crime-location</li>
-                <li id= "crime-charge" class= "crime-charge">crime-charge<li>
-                <img id= "crime-pic" class= "crime-pic ">image here if one</img>
-              </ul>
-          </div>
-      </div>
+
       </main>
     </webpage>
     <div id="error_modal">
