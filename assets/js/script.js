@@ -1,5 +1,6 @@
  var nextBtn = document.getElementById("next_btn");
  var cancelBtn= document.getElementById("cancel_btn");
+ var searchAgainBtn= document.getElementById ("searchAgainBtn")
  var dropDown = document.getElementById("langDrop");
  var cancelBtn= document.getElementById("cancel_btn");
  var error = document.getElementById("error_modal");
@@ -78,12 +79,19 @@ function hideme(event){
   event.preventDefault();
   document.getElementById("error_modal").classList.remove("shown");
   document.getElementById("error_modal").classList.add("hide");
+  localStorage.clearall()
 }
 
 //var ogQuote = localStorage.getItem();
 
+function clear(event){
+  event.preventDefault();
+  document.getElementById("form").classList.remove("hide");
+  document.getElementById("results-page").classList.add("hide");  
+}
 formLanguage.addEventListener("submit", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
+searchAgainBtn.addEventListener("click", clear)
 
 
 function getLang(){
