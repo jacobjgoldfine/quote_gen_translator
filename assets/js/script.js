@@ -3,6 +3,7 @@
 // var lastName = document.getElementById("last_name");
 // var state = document.getElementById("state");
  var nextBtn = document.getElementById("next_btn");
+ var cancelBtn= document.getElementById("cancel_btn")
 // var submitBtn2 = document.getElementById("submit_btn2");
 // var resultName = document.getElementById("date_name");
 // var results = document.getElementById("criminal_container");
@@ -34,8 +35,6 @@ function displayResult(data) {
   //append the results from API call to var results
 }
 
-
-
 //ADDING THE QUOTE TO THE PAGE 
 var quoteEl = $('#next_btn');
 
@@ -59,11 +58,15 @@ function getQuote() {
 
 quoteEl.click(getQuote);
 
+function hideme(event){
+  event.preventDefault();
+  document.getElementById("error_modal").classList.add("hide");
+}
 //var ogQuote = localStorage.getItem();
 
 nextBtn.addEventListener("click", gotoTranslated);
+cancelBtn.addEventListener("click", hideme)
 //submitBtn2.addEventListener("click", gotoSearchResults);
-
 
 
 // PARSE the data

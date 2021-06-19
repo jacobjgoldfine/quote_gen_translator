@@ -1,10 +1,4 @@
 section {
-  background: rgb(9, 11, 121);
-  background: linear-gradient(
-    171deg,
-    rgb(9, 99, 121) 52%,
-    rgb(0, 238, 255) 100%
-  );
   border-radius: 10px;
   color: aliceblue;
   width: 700px;
@@ -16,12 +10,12 @@ h1 {
 }
 
 .languageSelect {
-  background: rgb(9, 11, 121);
+  /* background: rgb(9, 11, 121);
   background: linear-gradient(
     171deg,
     rgb(9, 99, 121) 52%,
     rgb(0, 238, 255) 100%
-  );
+  ); */
   border-radius: 10px;
   color: aliceblue;
   width: 700px;
@@ -30,12 +24,12 @@ h1 {
 }
 
 card {
-  background: rgb(9, 11, 121);
+  /* background: rgb(9, 11, 121);
   background: linear-gradient(
     171deg,
     rgb(9, 99, 121) 52%,
     rgb(0, 238, 255) 100%
-  );
+  ); */
   border-radius: 10px;
   color: aliceblue;
   width: 910px;
