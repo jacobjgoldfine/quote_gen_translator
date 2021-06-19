@@ -1,10 +1,21 @@
  var nextBtn = document.getElementById("next_btn");
  var cancelBtn= document.getElementById("cancel_btn");
  var dropDown = document.getElementById("langDrop");
+ var cancelBtn= document.getElementById("cancel_btn")
+ var selectLang = document.getElementById("selectLang");
+ var error = document.getElementById("error_modal")
+ var langDrop= document.getElementById("langdrop")
+ var langoptions = document.getElementsByClassName("lang")
+ console.log(selectLang)
+ console.log(langDrop)
 
  function gotoTranslated(event) {
    event.preventDefault();
    console.log("clicked")
+   if (selectLang === selectLang){
+   document.getElementById("error_modal").classList.remove("hide")
+   } else {
+     if (selectLang === langoptions)
    document.getElementById("form").classList.add("hide");
    document.getElementById("results-page").classList.remove("hide"); 
  }
@@ -62,6 +73,8 @@ function hideme(event){
   event.preventDefault();
   document.getElementById("error_modal").classList.add("hide");
 }
+
+
 //var ogQuote = localStorage.getItem();
 
 nextBtn.addEventListener("click", gotoTranslated);
