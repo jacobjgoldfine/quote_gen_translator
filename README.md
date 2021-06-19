@@ -1,17 +1,17 @@
-# Are You Date'n A Felon?
+# Random Quote Generator?
 
 ## Project Description
 
-A web application that allows a user to search the jails and federal databases to check if their online date is a potential criminal.
+A web application that allows a user to select a language and translate it into their selected language.
 
 ## User Story
 
-- As a user I want to find out if my potential date has been arrested or is wanted.
-- As a user I want to be able to filter by Name, Location, and Crime Commited
-- As a user I want to see all possible most-likely matches.
-- As a user I want to be able to see my previous searches.
+- As a user I want to select a language of my choice
+- As a user I want generate a random quote
+- As a user I want see my lat generated quote on a page refresh
+- As a user I want view the quote in english and and my selected language.
 
 ## APIs
 
-- Jailbase API: https://www.jailbase.com/api/
-- FBI wanted API: https://www.fbi.gov/wanted/api
+- Quote generator: https://free-quotes-api.herokuapp.com/
+- Translator: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de
