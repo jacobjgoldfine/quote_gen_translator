@@ -5,9 +5,9 @@ fetch("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
     "Ocp-Apim-Subscription-Region": "eastus",
     "Content-Type": "application/json; charset=UTF-8",
   },
-  body: [
+  body: JSON.stringify([
     {"Text": "Test this"}
-],
+]),
 })
   .then((response) => {
     return response.json();
