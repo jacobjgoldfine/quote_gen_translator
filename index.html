@@ -38,99 +38,8 @@
       <h3 class= "mt-2 mb-5 text-5xl" > Select a Language</h3>
       <form id="date_info">
           <label class="text-2xl" for="location"></label>
-          <select name="state" id="state" type="text" class="mb-2 mt-1 justify-center">
-            <option selected="true">Select a Language</option>
-            <option id="Afrikaans">Afrikaans</option>
-            <option id="Amharic">Amharic</option>
-            <option id="Arabic">Arabic</option>
-            <option id="Assamese">Assamese</option>
-            <option id="Azerbaijani">Azerbaijani</option>
-            <option id="Bulgarian">Bulgarian</option>
-            <option id="Bangla">Bangla</option>
-            <option id="Bosnian">Bosnian</option>
-            <option id="Catalan">Catalan</option>
-            <option id="Czech">Czech</option>
-            <option id="Welsh">Welsh</option>
-            <option id="Danish">Danish</option>
-            <option id="German">German</option>
-            <option id="Greek">Greek</option>
-            <option id="English">English</option>
-            <option id="Spanish">Spanish</option>
-            <option id="Estonian">Estonian</option>
-            <option id="Persian">Persian</option>
-            <option id="Finnish">Finnish</option>
-            <option id="Filipino">Filipino</option>
-            <option id="Fijian">Fijian</option>
-            <option id="French">French</option>
-            <option id="French (Canada)">French (Canada)</option>
-            <option id="Irish">Irish</option>
-            <option id="Gujarati">Gujarati</option>
-            <option id="Hebrew">Hebrew</option>
-            <option id="Hindi">Hindi</option>
-            <option id="Croatian">Croatian</option>
-            <option id="Haitian Creole">Haitian Creole</option>
-            <option id="Hungarian">Hungarian</option>
-            <option id="Armenian">Armenian</option>
-            <option id="Indonesian">Indonesian</option>
-            <option id="Icelandic">Icelandic</option>
-            <option id="Italian">Italian</option>
-            <option id="Inuktitut">Inuktitut</option>
-            <option id="Japanese">Japanese</option>
-            <option id="Kazakh">Kazakh</option>
-            <option id="Khmer">Khmer</option>
-            <option id="Kurdish (Northern)">Kurdish (Northern)</option>
-            <option id="Kannada">Kannada</option>
-            <option id="Korean">Korean</option>
-            <option id="Kurdish (Central)">Kurdish (Central)</option>
-            <option id="Lao">Lao</option>
-            <option id="Lithuanian">Lithuanian</option>
-            <option id="Latvian">Latvian</option>
-            <option id="Malagasy">Malagasy</option>
-            <option id="Maori">Maori</option>
-            <option id="Malayalam">Malayalam</option>
-            <option id="Marathi">Marathi</option>
-            <option id="Malay">Malay</option>
-            <option id="Maltese">Maltese</option>
-            <option id="Hmong Daw">Hmong Daw</option>
-            <option id="Myanmar (Burmese)">Myanmar (Burmese)</option>
-            <option id="Norwegian">Norwegian</option>
-            <option id="Nepali">Nepali</option>
-            <option id="Dutch">Dutch</option>
-            <option id="Odia">Odia</option>
-            <option id="Querétaro Otomi">Querétaro Otomi</option>
-            <option id="Punjabi">Punjabi</option>
-            <option id="Polish">Polish</option>
-            <option id="Dari">Dari</option>
-            <option id="Pashto">Pashto</option>
-            <option id="Portuguese (Brazil)">Portuguese (Brazil)</option>
-            <option id="Portuguese (Portugal)">Portuguese (Portugal)</option>
-            <option id="Romanian">Romanian</option>
-            <option id="Russian">Russian</option>
-            <option id="Slovak">Slovak</option>
-            <option id="Slovenian">Slovenian</option>
-            <option id="Samoan">Samoan</option>
-            <option id="Albanian">Albanian</option>
-            <option id="Serbian (Cyrillic)">Serbian (Cyrillic)</option>
-            <option id="Serbian (Latin)">Serbian (Latin)</option>
-            <option id="Swedish">Swedish</option>
-            <option id="Swahili">Swahili</option>
-            <option id="Tamil">Tamil</option>
-            <option id="Telugu">Telugu</option>
-            <option id="Thai">Thai</option>
-            <option id="Tigrinya">Tigrinya</option>
-            <option id="Klingon (Latin)">Klingon (Latin)</option>
-            <option id="Klingon (pIqaD)">Klingon (pIqaD)</option>
-            <option id="Tongan">Tongan</option>
-            <option id="Turkish">Turkish</option>
-            <option id="Tahitian">Tahitian</option>
-            <option id="Ukrainian">Ukrainian</option>
-            <option id="Urdu">Urdu</option>
-            <option id="Vietnamese">Vietnamese</option>
-            <option id="Yucatec Maya">Yucatec Maya</option>
-            <option id="Cantonese (Traditional)">Cantonese (Traditional)</option>
-            <option id="Chinese Simplified">Chinese Simplified</option>
-            <option id="Chinese Traditional">Chinese Traditional</option>
-
+          <select name="Language" id="langdrop" type= "text" class="mb-2 mt-1 justify-center">
+            <option id= "selectLang" class= "disable" value = true >Select a Language</option>
            </select>
         
           </div>
@@ -162,7 +71,7 @@
     </section2>
     </webpage>
 
-    <div id="error_modal">
+    <div id="error_modal" class= "hide">
       <div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
