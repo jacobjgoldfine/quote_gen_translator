@@ -32,7 +32,8 @@ function getQuote() {
 }
 
 function translateQuote(quote) {
-var langCode = document.getE
+var langCode = document.getElementsByTagName("option".id);
+console.log(langCode);
 fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${langCode}`, {
   method: "POST",
   headers: {
