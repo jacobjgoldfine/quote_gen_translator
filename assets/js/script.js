@@ -1,13 +1,29 @@
  var nextBtn = document.getElementById("next_btn");
  var cancelBtn= document.getElementById("cancel_btn");
  var dropDown = document.getElementById("langDrop");
+ var cancelBtn= document.getElementById("cancel_btn");
+ var error = document.getElementById("error_modal");
+ var langDrop= document.getElementById("langDrop");
+ var formlanguage= document.getElementById("formLanguage");
+ var emptySelection= document.getElementById("EmptySelection");
+
 
  function gotoTranslated(event) {
    event.preventDefault();
    console.log("clicked")
-   document.getElementById("form").classList.add("hide");
-   document.getElementById("results-page").classList.remove("hide"); 
- }
+   var selectedValue = langDrop.options[langDrop.selectedIndex].value
+  console.log(selectedValue)
+   if (selectedValue === ""){
+     error.classList.add("shown")
+     error.classList.remove("hide")
+   }else{
+     error.classList.add("hide")
+     error.classList.remove("shown")
+     document.getElementById("form").classList.add("hide");
+     document.getElementById("results-page").classList.remove("hide");  
+   }
+  }
+
 
 //ADDING THE QUOTE TO THE PAGE 
 var quoteEl = $('#next_btn');
@@ -55,16 +71,17 @@ fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
   });
 }
 
-  
 quoteEl.click(getQuote);
 
 function hideme(event){
   event.preventDefault();
+  document.getElementById("error_modal").classList.remove("shown");
   document.getElementById("error_modal").classList.add("hide");
 }
+
 //var ogQuote = localStorage.getItem();
 
-nextBtn.addEventListener("click", gotoTranslated);
+formLanguage.addEventListener("submit", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
 
 
@@ -84,7 +101,7 @@ function getLang(){
 
     createOption.textContent = languages[prop].name
     createOption.setAttribute("id", prop)
-
+    
     dropDown.appendChild(createOption);
   };
   }
@@ -94,4 +111,4 @@ function getLang(){
 });
 }
 
-getLang()
+getLang();

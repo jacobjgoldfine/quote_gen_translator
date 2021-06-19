@@ -64,6 +64,10 @@ h3 {
   display: none;
 }
 
+.shown {
+  display: block;
+}
+
 input,
 select {
   color: black;
