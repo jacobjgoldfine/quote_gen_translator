@@ -7,12 +7,6 @@
  var formlanguage= document.getElementById("formLanguage");
  var emptySelection= document.getElementById("EmptySelection");
 
-window.onload= function(){
-//   if(selectedValue === "EmptySelection"){
-//   error.classList.add("hide");
-//   error.classList.remove("shown");
-// }
-}
 
  function gotoTranslated(event) {
    event.preventDefault();
@@ -29,6 +23,7 @@ window.onload= function(){
      document.getElementById("results-page").classList.remove("hide");  
    }
   }
+
 
 //ADDING THE QUOTE TO THE PAGE 
 var quoteEl = $('#next_btn');
@@ -82,7 +77,6 @@ function hideme(event){
   event.preventDefault();
   document.getElementById("error_modal").classList.remove("shown");
   document.getElementById("error_modal").classList.add("hide");
-
 }
 
 //var ogQuote = localStorage.getItem();
