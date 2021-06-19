@@ -10,9 +10,7 @@
 
  function gotoTranslated(event) {
    event.preventDefault();
-   console.log("clicked")
    var selectedValue = langDrop.options[langDrop.selectedIndex].value
-  console.log(selectedValue)
    if (selectedValue === ""){
      error.classList.add("shown")
      error.classList.remove("hide")
@@ -34,8 +32,6 @@ function getQuote() {
     url: queryURL,
     method: "GET",
     success: function(data){
-      console.log(data)
-      console.log(data.quote + data.author)
       var ogQuote = $("#og-Quote")//add quote area ID
       ogQuote.append(data.quote)
       var ogAuthor =$("#og-author")
@@ -48,7 +44,7 @@ function getQuote() {
 }
 
 function translateQuote(quote) {
-var langCode = document.getElementsByTagName("option".id);
+var langCode = langDrop.options[langDrop.selectedIndex].id
 console.log(langCode);
 fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${langCode}`, {
   method: "POST",
@@ -57,15 +53,22 @@ fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
     "Ocp-Apim-Subscription-Region": "eastus",
     "Content-Type": "application/json; charset=UTF-8",
   },
-  body: [
+  body: JSON.stringify([
     {"Text": quote}
-],
+]),
 })
   .then((response) => {
     return response.json();
   })
   .then((response) => {
     console.log(response);
+    for(var prop in response){
+      console.log(response[prop].translations[prop].text);
+      var translatedQuote = response[prop].translations[prop].text;
+      var transQuoteHolder = document.getElementById("tr-Quote");
+
+      transQuoteHolder.append(translatedQuote);
+    };
   })
   .catch((err) => {
     console.error(err);
@@ -80,7 +83,6 @@ function hideme(event){
   document.getElementById("error_modal").classList.add("hide");
 }
 
-//var ogQuote = localStorage.getItem();
 
 formLanguage.addEventListener("submit", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
@@ -94,9 +96,7 @@ function getLang(){
   return response.json();
 })
 .then((response) => {
-  // console.log(response.translation);
   var languages = response.translation
-  console.log(languages);
   for(var prop in languages){
     var createOption = document.createElement('option');
 
