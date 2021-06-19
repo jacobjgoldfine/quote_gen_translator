@@ -1,21 +1,13 @@
-// var dateInfo = document.getElementById("date_info");
-// var firstName = document.getElementById("first_name");
-// var lastName = document.getElementById("last_name");
-// var state = document.getElementById("state");
  var nextBtn = document.getElementById("next_btn");
+ var cancelBtn= document.getElementById("cancel_btn");
+ var dropDown = document.getElementById("langDrop");
  var cancelBtn= document.getElementById("cancel_btn")
-// var submitBtn2 = document.getElementById("submit_btn2");
-// var resultName = document.getElementById("date_name");
-// var results = document.getElementById("criminal_container");
-// var errorPop = document.getElementById("error_modal");
-var selectLang = document.getElementById("selectLang");
-var error = document.getElementById("error_modal")
-var langDrop= document.getElementById("langdrop")
-var langoptions = document.getElementsByClassName("lang")
-console.log(selectLang)
-console.log(langDrop)
-
-// console.log(lastName);
+ var selectLang = document.getElementById("selectLang");
+ var error = document.getElementById("error_modal")
+ var langDrop= document.getElementById("langdrop")
+ var langoptions = document.getElementsByClassName("lang")
+ console.log(selectLang)
+ console.log(langDrop)
 
  function gotoTranslated(event) {
    event.preventDefault();
@@ -26,24 +18,7 @@ console.log(langDrop)
      if (selectLang === langoptions)
    document.getElementById("form").classList.add("hide");
    document.getElementById("results-page").classList.remove("hide"); 
-   }
  }
-
-// function pullResults() {
-//   const queryURL = `https://www.jailbase.com/api/1/search/?source_id=${source_id}&first_name=${firstName}&last_name=${lastName}`;
-//   //check documentation for API
-//   $.ajax({
-//     url: queryURL,
-//     method: "GET",
-//     success: displayResult(data),
-//     success: displayResult,
-//   });
-// }
-
-function displayResult(data) {
-  console.log(data);
-  //append the results from API call to var results
-}
 
 //ADDING THE QUOTE TO THE PAGE 
 var quoteEl = $('#next_btn');
@@ -62,10 +37,36 @@ function getQuote() {
       ogAuthor.append("~"+data.author)
       var trAuthor= $("#tr-author")
       trAuthor.append("~"+data.author)
+      translateQuote(data.quote)
     }
   })
 }
 
+function translateQuote(quote) {
+var langCode = document.getE
+fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${langCode}`, {
+  method: "POST",
+  headers: {
+    "Ocp-Apim-Subscription-Key": "5377b25d2ec94e7aa99cd9209862184f",
+    "Ocp-Apim-Subscription-Region": "eastus",
+    "Content-Type": "application/json; charset=UTF-8",
+  },
+  body: [
+    {"Text": quote}
+],
+})
+  .then((response) => {
+    return response.json();
+  })
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+}
+
+  
 quoteEl.click(getQuote);
 
 function hideme(event){
@@ -78,15 +79,32 @@ function hideme(event){
 
 nextBtn.addEventListener("click", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
-//submitBtn2.addEventListener("click", gotoSearchResults);
 
 
-// PARSE the data
-// (same as doing a for loop and looping over the array)
-//response.records.map(function(whateveryouwant) {
-// countyOffices.Alabama.push(office);
-// countyOffices.Texas.push(office);
-// countyOffices.Wisconsin.push(office);
-// return countyOffices[whateveryouwant.state_full].push(whateveryouwant);
-//})
+function getLang(){
+  fetch("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0", {
+    method: "GET",
+  })
+.then((response) => {
+  return response.json();
+})
+.then((response) => {
+  // console.log(response.translation);
+  var languages = response.translation
+  console.log(languages);
+  for(var prop in languages){
+    var createOption = document.createElement('option');
 
+    createOption.textContent = languages[prop].name
+    createOption.setAttribute("id", prop)
+
+    dropDown.appendChild(createOption);
+  };
+  }
+)
+.catch((err) => {
+  console.error(err);
+});
+}
+
+getLang()
