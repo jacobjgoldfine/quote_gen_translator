@@ -10,14 +10,15 @@
 
 
  function gotoTranslated(event) {
-   event.preventDefault();
+  event.preventDefault();
    var selectedValue = langDrop.options[langDrop.selectedIndex].value
    if (selectedValue === ""){
-     error.classList.add("shown")
-     error.classList.remove("hide")
+    error.classList.add("shown");
+    error.classList.remove("hide");
+    return;
    }else{
-     error.classList.add("hide")
-     error.classList.remove("shown")
+     error.classList.add("hide");
+     error.classList.remove("shown");
      document.getElementById("form").classList.add("hide");
      document.getElementById("results-page").classList.remove("hide");  
    }
@@ -82,7 +83,7 @@ function hideme(event){
   event.preventDefault();
   document.getElementById("error_modal").classList.remove("shown");
   document.getElementById("error_modal").classList.add("hide");
-  localStorage.clearall()
+  localStorage.clear()
 }
 
 
