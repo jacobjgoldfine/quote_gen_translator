@@ -24,7 +24,6 @@
    }
   }
 
-
 //ADDING THE QUOTE TO THE PAGE 
 var quoteEl = $('#next_btn');
 
@@ -90,8 +89,19 @@ function hideme(event){
 function clear(event){
   event.preventDefault();
   document.getElementById("form").classList.remove("hide");
-  document.getElementById("results-page").classList.add("hide");  
+  document.getElementById("results-page").classList.add("hide");
 }
+
+//CLEARING THE OLD QUOTES AND AUTHORS
+$(document).ready(function(){
+  $(searchAgainBtn).click(function(){
+  $("#og-Quote").empty();
+  $("#og-author").empty();
+  $("#tr-author").empty();
+  $("#tr-Quote").empty();
+  });
+});
+
 formLanguage.addEventListener("submit", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
 searchAgainBtn.addEventListener("click", clear)
