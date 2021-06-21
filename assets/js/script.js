@@ -102,6 +102,16 @@ $(document).ready(function(){
   });
 });
 
+//Clears Quotes generated when the modal is open.
+$(document).ready(function(){
+  $(cancelBtn).click(function(){
+  $("#og-Quote").empty();
+  $("#og-author").empty();
+  $("#tr-author").empty();
+  $("#tr-Quote").empty();
+  });
+});
+
 formLanguage.addEventListener("submit", gotoTranslated);
 cancelBtn.addEventListener("click", hideme)
 searchAgainBtn.addEventListener("click", clear)
