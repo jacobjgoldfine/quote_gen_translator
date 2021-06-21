@@ -12,10 +12,18 @@
 //if local storage then displays it
 function showLocalStorage(){
   if(localstroage.getItem("quote") !="null")
-    gotoTranslated()
-  }
+    showStoredQuote()
+  };
 
-  
+function showStoredQuote() {
+    error.classList.add("hide");
+    error.classList.remove("shown");
+    document.getElementById("form").classList.add("hide");
+    document.getElementById("results-page").classList.remove("hide");  
+    //get item x3 quote, author, transQuote
+    //append to the elements
+};
+
  function gotoTranslated(event) {
   event.preventDefault();
    var selectedValue = langDrop.options[langDrop.selectedIndex].value
@@ -23,13 +31,6 @@ function showLocalStorage(){
     error.classList.add("shown");
     error.classList.remove("hide");
     return;
-   }else if(localStorage.getItem("quote") !="null") {
-     error.classList.add("hide");
-     error.classList.remove("shown");
-     document.getElementById("form").classList.add("hide");
-     document.getElementById("results-page").classList.remove("hide");  
-     //get item x3 quote, author, transQuote
-     //append to the elements
    }else {
     error.classList.add("hide");
     error.classList.remove("shown");
