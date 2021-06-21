@@ -9,6 +9,13 @@
  var emptySelection= document.getElementById("EmptySelection");
 
 
+//if local storage then displays it
+function showLocalStorage(){
+  if(localstroage.getItem("quote") !="null")
+    gotoTranslated()
+  }
+
+  
  function gotoTranslated(event) {
   event.preventDefault();
    var selectedValue = langDrop.options[langDrop.selectedIndex].value
@@ -16,12 +23,21 @@
     error.classList.add("shown");
     error.classList.remove("hide");
     return;
-   }else{
+   }else if(localStorage.getItem("quote") !="null") {
      error.classList.add("hide");
      error.classList.remove("shown");
      document.getElementById("form").classList.add("hide");
      document.getElementById("results-page").classList.remove("hide");  
+     //get item x3 quote, author, transQuote
+     //append to the elements
+   }else {
+    error.classList.add("hide");
+    error.classList.remove("shown");
+    document.getElementById("form").classList.add("hide");
+    document.getElementById("results-page").classList.remove("hide"); 
+    getQuote()
    }
+
   }
 
 //ADDING THE QUOTE TO THE PAGE 
@@ -76,7 +92,6 @@ fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
   });
 }
 
-quoteEl.click(getQuote);
 
 function hideme(event){
   event.preventDefault();
@@ -142,3 +157,6 @@ function getLang(){
 }
 
 getLang();
+
+//if there is local storage, runs this function and goes to display it
+showLocalStorage();
