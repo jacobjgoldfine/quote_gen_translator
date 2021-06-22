@@ -7,11 +7,15 @@
  var langDrop= document.getElementById("langDrop");
  var formlanguage= document.getElementById("formLanguage");
  var emptySelection= document.getElementById("EmptySelection");
+ var storedQuote= document.getElementById("og-Quote")
+ var storedAuthor= document.getElementById("og-author")
+ var storedTranslation= document.getElementById("tr-Quote")
+ var storedTranslatedAuthor = document.getElementById("tr-author")
 
 
 //if local storage then displays it
 function showLocalStorage(){
-  if(localstroage.getItem("quote") !="null")
+  if(localStorage.getItem("quote") !="null")
     showStoredQuote()
   };
 
@@ -22,6 +26,16 @@ function showStoredQuote() {
     document.getElementById("results-page").classList.remove("hide");  
     //get item x3 quote, author, transQuote
     //append to the elements
+    var recentQuote = localStorage.getItem("quote");
+    console.log(recentQuote);
+    storedQuote.innerText= recentQuote
+    var recentAuthor = localStorage.getItem("author");
+    console.log(recentAuthor);
+    storedAuthor.innerText = ("~"+ recentAuthor);
+    var recentTranslation = localStorage.getItem("translatedQuote");
+    console.log(recentTranslation)
+    storedTranslation.innerText = recentTranslation;
+    storedTranslatedAuthor.innerText = ("~"+ recentAuthor);
 };
 
  function gotoTranslated(event) {
@@ -57,6 +71,8 @@ function getQuote() {
       var trAuthor= $("#tr-author")
       trAuthor.append("~"+data.author)
       translateQuote(data.quote)
+      localStorage.setItem("quote", data.quote)
+      localStorage.setItem("author", data.author)
     }
   })
 }
@@ -86,6 +102,7 @@ fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
       var transQuoteHolder = document.getElementById("tr-Quote");
 
       transQuoteHolder.append(translatedQuote);
+      localStorage.setItem("translatedQuote", response[prop].translations[prop].text);
     };
   })
   .catch((err) => {
