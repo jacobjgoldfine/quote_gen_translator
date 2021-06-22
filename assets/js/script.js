@@ -12,32 +12,7 @@
  var storedTranslation= document.getElementById("tr-Quote")
  var storedTranslatedAuthor = document.getElementById("tr-author")
 
-
-//if local storage then displays it
-function showLocalStorage(){
-  if(localStorage.getItem("quote") !="null")
-    showStoredQuote()
-  };
-
-function showStoredQuote() {
-    error.classList.add("hide");
-    error.classList.remove("shown");
-    document.getElementById("form").classList.add("hide");
-    document.getElementById("results-page").classList.remove("hide");  
-    //get item x3 quote, author, transQuote
-    //append to the elements
-    var recentQuote = localStorage.getItem("quote");
-    console.log(recentQuote);
-    storedQuote.innerText= recentQuote
-    var recentAuthor = localStorage.getItem("author");
-    console.log(recentAuthor);
-    storedAuthor.innerText = ("~"+ recentAuthor);
-    var recentTranslation = localStorage.getItem("translatedQuote");
-    console.log(recentTranslation)
-    storedTranslation.innerText = recentTranslation;
-    storedTranslatedAuthor.innerText = ("~"+ recentAuthor);
-};
-
+//takes to the result display page
  function gotoTranslated(event) {
   event.preventDefault();
    var selectedValue = langDrop.options[langDrop.selectedIndex].value
@@ -77,6 +52,7 @@ function getQuote() {
   })
 }
 
+//makes api call to translate quote and add to the page
 function translateQuote(quote) {
 var langCode = langDrop.options[langDrop.selectedIndex].id
 console.log(langCode);
@@ -110,7 +86,7 @@ fetch(`https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&t
   });
 }
 
-
+//hides error modal
 function hideme(event){
   event.preventDefault();
   document.getElementById("error_modal").classList.remove("shown");
@@ -118,11 +94,12 @@ function hideme(event){
   localStorage.clear()
 }
 
-
+//resets the page when you hit the search again Btn
 function clear(event){
   event.preventDefault();
   document.getElementById("form").classList.remove("hide");
   document.getElementById("results-page").classList.add("hide");
+  localStorage.clear()
 }
 
 //CLEARING THE OLD QUOTES AND AUTHORS
@@ -145,11 +122,25 @@ $(document).ready(function(){
   });
 });
 
-formLanguage.addEventListener("submit", gotoTranslated);
-cancelBtn.addEventListener("click", hideme)
-searchAgainBtn.addEventListener("click", clear)
+//if local storage then displays it
+function showLocalStorage(){
+  if(localStorage.getItem("quote") !== null)
+    showStoredQuote()
+  };
 
+function showStoredQuote() {
+    document.getElementById("form").classList.add("hide");
+    document.getElementById("results-page").classList.remove("hide");  
+    var recentQuote = localStorage.getItem("quote");
+    storedQuote.innerText= recentQuote
+    var recentAuthor = localStorage.getItem("author");
+    storedAuthor.innerText = ("~"+ recentAuthor);
+    var recentTranslation = localStorage.getItem("translatedQuote");
+    storedTranslation.innerText = recentTranslation;
+    storedTranslatedAuthor.innerText = ("~"+ recentAuthor);
+};
 
+//gets the object of languages and langCodes to populate the dropdown
 function getLang(){
   fetch("https://api.cognitive.microsofttranslator.com/languages?api-version=3.0", {
     method: "GET",
@@ -174,6 +165,12 @@ function getLang(){
 });
 }
 
+//buttons
+formLanguage.addEventListener("submit", gotoTranslated);
+cancelBtn.addEventListener("click", hideme)
+searchAgainBtn.addEventListener("click", clear)
+
+//gets languages on startup
 getLang();
 
 //if there is local storage, runs this function and goes to display it
